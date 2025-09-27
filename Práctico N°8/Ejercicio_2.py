@@ -16,16 +16,26 @@ class Pila:
         self.list.insert(0,elements)
         return self.list
     
+    def empty_list(self):
+        return len(self.list) == 0
+    
     def show (self):
        print (self.list)
-        
-Pila_1 = Pila()
-Pila_2 = Pila()
 
-for i in range (3):
-    element = int(input("Ingrese los numeros que desee: "))
-    Pila_1.push(element)
-    Pila_2.add_back(element)
+W = Pila()
+W_Inverted = Pila()
 
-Pila_1.show()
-Pila_2.show()
+Word = input("Ingrese una palabra cualquiera: ")
+
+
+for letter in Word:
+    W.push(letter)
+
+W.show()
+
+while not W.empty_list():
+    l = W.delete()
+    W_Inverted.push(l)
+
+W_Inverted.show()
+
